@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS vendors(
+CREATE TABLE IF NOT EXISTS Vendors(
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     vendor_type VARCHAR(50) NOT NULL,
@@ -6,29 +6,59 @@ CREATE TABLE IF NOT EXISTS vendors(
     rating DECIMAL(2,1) CHECK(rating BETWEEN 0 AND 5),
     is_active BOOlEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    
 );
 
 CREATE INDEX vendorType_index ON vendors(vendor_type);
 
-INSERT INTO vendors(name,vendor_type,contact_info,rating)
-VALUES('Sunrise Hotels','hotel','sunrise@hotel.com, +91-9876543210',4.6);
-
-INSERT INTO vendors
-(name, vendor_type, contact_info, rating, is_active)
+INSERT INTO Vendors(name, vendor_type, contact_info, rating, is_active)
 VALUES
-('Oceanic Stays Pvt Ltd', 'hotel', 'contact@oceanicstays.com, +91-9000022222', 4.2, TRUE),
-('Metro Inns & Suites', 'hotel', 'metroinns@gmail.com, +91-9000033333', 3.9, TRUE),
-('Hilltop Resorts', 'hotel', 'hilltop@resorts.com, +91-9000044444', 4.6, TRUE),
-('Royal Orchid Group', 'hotel', 'royalorchid@hotels.com, +91-9000055555', 4.7, TRUE),
-('FastTrack Fleet Services', 'vehicle', 'fasttrack@fleet.com, +91-9111111111', 4.4, TRUE),
-('Urban Ride Solutions', 'vehicle', 'urbanride@solutions.com, +91-9222222222', 4.1, TRUE),
-('Highway Transport Co.', 'vehicle', 'highway@transport.com, +91-9333333333', 4.6, TRUE),
-('Spice Route Caterers', 'food', 'spiceroute@caterers.com, +91-9444444444', 4.3, TRUE),
-('Daily Meal Services', 'food', 'dailymeals@food.com, +91-9555555555', 4.0, TRUE),
-('Royal Feast Kitchens', 'food', 'royalfeast@kitchen.com, +91-9666666666', 4.8, FALSE);
-
-SELECT * FROM vendors;
-DROP TABLE vendors;
-ALTER TABLE vendors ADD COLUMN is_active BOOlEAN DEFAULT TRUE;
-
+('Royal Wheels','vehicles','+91-9876543210, royalwheels@gmail.com',4.5, TRUE),
+('Spice Delight','foods','+91-9876123456, spicedelight@gmail.com',4.2, TRUE),
+('Mountain View Hotel','hotels','+91-9823456789, mountainview@gmail.com',4.8, TRUE),
+('Sea Breeze Vehicles','vehicles','+91-9812345678, seabreezevehicles@gmail.com',4.6, TRUE),
+('City Cab Services','vehicles','+91-9834567890, citycab@gmail.com',4.1, TRUE),
+('Tasty Treats','foods','+91-9845678901, tastytreats@gmail.com',3.9, TRUE),
+('Palm Resort','hotels','+91-9856789012, palmresort@gmail.com',4.7, TRUE),
+('River Cruise Vehicles','vehicles','+91-9867890123, rivercruisevehicles@gmail.com',4.4, TRUE),
+('Swift Rides','vehicles','+91-9878901234, swiftrides@gmail.com',4.0, TRUE),
+('Curry House','foods','+91-9889012345, curryhouse@gmail.com',4.3, TRUE),
+('Sunset Hotel','hotels','+91-9890123456, sunsethotel@gmail.com',4.5, TRUE),
+('Island Tours','vehicles','+91-9801234567, islandtours@gmail.com',4.6, TRUE),
+('FastTrack Cabs','vehicles','+91-9812345670, fasttrackcabs@gmail.com',3.8, TRUE),
+('Green Leaf Restaurant','foods','+91-9823456701, greenleaf@gmail.com',4.1, TRUE),
+('Hilltop Stay','hotels','+91-9834567012, hilltopstay@gmail.com',4.4, TRUE),
+('Aqua Adventures','vehicles','+91-9845670123, aquaadventures@gmail.com',4.7, TRUE),
+('Urban Wheels','vehicles','+91-9856701234, urbanwheels@gmail.com',4.2, TRUE),
+('Spice Junction','foods','+91-9867012345, spicejunction@gmail.com',4.0, TRUE),
+('Ocean View Hotel','hotels','+91-9870123456, oceanview@gmail.com',4.8, TRUE),
+('Blue Lagoon Vehicles','vehicles','+91-9881234567, bluelagoonvehicles@gmail.com',4.5, TRUE),
+('Express Rides','vehicles','+91-9001234567, expressrides@gmail.com',4.3, TRUE),
+('Royal Feast','foods','+91-9012345678, royalfeast@gmail.com',4.6, TRUE),
+('Sunrise Inn','hotels','+91-9023456789, sunriseinn@gmail.com',4.4, TRUE),
+('Wave Riders Vehicles','vehicles','+91-9034567890, waveridersvehicles@gmail.com',4.7, TRUE),
+('CityZoom Cabs','vehicles','+91-9045678901, cityzoomcabs@gmail.com',4.1, TRUE),
+('Taste of India','foods','+91-9056789012, tasteofindia@gmail.com',4.2, TRUE),
+('Mountain Retreat','hotels','+91-9067890123, mountainretreat@gmail.com',4.5, TRUE),
+('Coral Cruises Vehicles','vehicles','+91-9078901234, coralcruisesvehicles@gmail.com',4.3, TRUE),
+('Rapid Wheels','vehicles','+91-9089012345, rapidwheels@gmail.com',4.0, TRUE),
+('Spicy Spoon','foods','+91-9090123456, spicyspoon@gmail.com',4.4, TRUE),
+('Seaside Hotel','hotels','+91-9101234567, seasidehotel@gmail.com',4.6, TRUE),
+('Lagoon Adventures Vehicles','vehicles','+91-9112345678, lagoonadventuresvehicles@gmail.com',4.5, TRUE),
+('Zoom Cab Services','vehicles','+91-9123456789, zoomcab@gmail.com',3.9, TRUE),
+('Green Curry','foods','+91-9134567890, greencurry@gmail.com',4.1, TRUE),
+('Hill View Lodge','hotels','+91-9145678901, hillviewlodge@gmail.com',4.7, TRUE),
+('Aqua Explorer Vehicles','vehicles','+91-9156789012, aquaexplorervehicles@gmail.com',4.8, TRUE),
+('Urban Drive','vehicles','+91-9167890123, urbandrive@gmail.com',4.2, TRUE),
+('Flavor Town','foods','+91-9178901234, flavortown@gmail.com',4.0, TRUE),
+('Ocean Breeze Hotel','hotels','+91-9189012345, oceanbreeze@gmail.com',4.5, TRUE),
+('Blue Wave Vehicles','vehicles','+91-9190123456, bluewavevehicles@gmail.com',4.6, TRUE),
+('Speedy Wheels','vehicles','+91-9201234567, speedywheels@gmail.com',4.3, TRUE),
+('The Curry House','foods','+91-9212345678, thecurryhouse@gmail.com',4.5, TRUE),
+('Palm Beach Resort','hotels','+91-9223456789, palmbeachresort@gmail.com',4.8, TRUE),
+('Island Explorer Vehicles','vehicles','+91-9234567890, islandexplorervehicles@gmail.com',4.4, TRUE),
+('QuickRide Cabs','vehicles','+91-9245678901, quickridecabs@gmail.com',4.1, TRUE),
+('Tandoori Tales','foods','+91-9256789012, tandooritales@gmail.com',4.3, TRUE),
+('Mountain Peak Hotel','hotels','+91-9267890123, mountainpeak@gmail.com',4.7, TRUE),
+('Sea Voyager Vehicles','vehicles','+91-9278901234, seavoyagervehicles@gmail.com',4.5, TRUE),
+('City Wheels','vehicles','+91-9289012345, citywheels@gmail.com',4.2, TRUE),
+('Spice Route','foods','+91-9290123456, spiceroute@gmail.com',4.6, TRUE);

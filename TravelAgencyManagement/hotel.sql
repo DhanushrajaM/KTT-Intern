@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS hotels(
+CREATE TABLE IF NOT EXISTS Hotels(
    id SERIAL PRIMARY KEY,
    Vendor_id INT,
    name VARCHAR(100) NOT NULL,
@@ -10,22 +10,59 @@ CREATE TABLE IF NOT EXISTS hotels(
    CONSTRAINT fk_vendor_id FOREIGN KEY (Vendor_id) REFERENCES vendors(id)
    );
    
-INSERT INTO hotels
+INSERT INTO Hotels
 (vendor_id, name, location, star_rating, total_rooms, is_active)
 VALUES
-(1, 'Sunrise Grand', 'Chennai, Tamil Nadu', 4, 120, TRUE),
-(1, 'Sunrise Elite', 'Chennai, Tamil Nadu', 5, 80, TRUE),
-(2, 'Ocean View Residency', 'Pondicherry', 3, 60, TRUE),
-(2, 'Palm Breeze Hotel', 'Pondicherry', 4, 95, TRUE),
-(3, 'City Comfort Inn', 'Bengaluru, Karnataka', 3, 70, TRUE),
-(3, 'Metro Plaza', 'Bengaluru, Karnataka', 4, 110, FALSE),
-(4, 'Hilltop Retreat', 'Ooty, Tamil Nadu', 5, 45, TRUE),
-(4, 'Misty Valley Lodge', 'Ooty, Tamil Nadu', 4, 55, TRUE),
-(5, 'Royal Orchid Suites', 'Hyderabad, Telangana', 5, 150, TRUE),
-(5, 'Urban Stay Hotel', 'Hyderabad, Telangana', 3, 90, TRUE);
-
-   
-   SELECT * FROM hotels;
-   DROP TABLE hotels;
+(3,'Mountain View Hotel','Ooty',4,50,TRUE),
+(7,'Palm Resort','Coimbatore',5,80,TRUE),
+(11,'Sunset Hotel','Goa',4,60,TRUE),
+(15,'Ocean View Hotel','Chennai',5,70,TRUE),
+(19,'Island Explorer','Andaman',4,40,TRUE),
+(23,'Hilltop Stay','Darjeeling',3,35,TRUE),
+(27,'Sunrise Inn','Kerala',4,50,TRUE),
+(31,'Ocean Breeze Hotel','Pondicherry',5,60,TRUE),
+(35,'Palm Beach Resort','Mumbai',5,100,TRUE),
+(39,'Mountain Peak Hotel','Manali',4,50,TRUE),
+(43,'Seaside Hotel','Kochi',4,60,TRUE),
+(47,'Hill View Lodge','Munnar',4,45,TRUE),
+(3,'Golden Sands Resort','Goa',5,90,TRUE),
+(7,'Riverfront Retreat','Alleppey',4,55,TRUE),
+(11,'Skyline Hotel','Bangalore',4,70,TRUE),
+(15,'Coral Bay Hotel','Pondicherry',3,40,TRUE),
+(19,'Blue Lagoon Hotel','Andaman',5,80,TRUE),
+(23,'Serene Stay','Ooty',4,50,TRUE),
+(27,'Luxury Inn','Chennai',5,90,TRUE),
+(31,'Paradise Resort','Coimbatore',4,60,TRUE),
+(35,'Forest Edge Hotel','Mysore',4,45,TRUE),
+(39,'Sunset Bay Hotel','Goa',5,100,TRUE),
+(43,'Mountain Lodge','Manali',3,35,TRUE),
+(47,'Oceanfront Inn','Kochi',4,50,TRUE),
+(3,'The Royal Stay','Jaipur',5,80,TRUE),
+(7,'The Heritage Hotel','Udaipur',5,70,TRUE),
+(11,'Seaside Resort','Rameswaram',4,60,TRUE),
+(15,'Hill Resort','Darjeeling',4,50,TRUE),
+(19,'City Inn','Mumbai',3,40,TRUE),
+(23,'Golden Palace','Jaipur',5,100,TRUE),
+(27,'Lotus Hotel','Bangalore',4,55,TRUE),
+(31,'Royal Retreat','Coimbatore',4,45,TRUE),
+(35,'Sunshine Inn','Goa',4,60,TRUE),
+(39,'Crystal Bay Resort','Andaman',5,90,TRUE),
+(43,'Riverbend Hotel','Alleppey',4,50,TRUE),
+(47,'Hilltop Palace','Munnar',5,80,TRUE),
+(3,'The Grand Stay','Chennai',5,70,TRUE),
+(7,'Seaview Resort','Pondicherry',4,55,TRUE),
+(11,'The Heritage Inn','Ooty',4,50,TRUE),
+(15,'Golden Sands Inn','Goa',5,100,TRUE),
+(19,'Forest Retreat','Mysore',4,45,TRUE),
+(23,'Sunset Lodge','Manali',3,35,TRUE),
+(27,'Coral Reef Hotel','Andaman',5,90,TRUE),
+(31,'Royal Bay Resort','Mumbai',5,80,TRUE),
+(35,'Hill Edge Inn','Darjeeling',4,50,TRUE),
+(39,'Ocean Pearl Hotel','Kochi',4,60,TRUE),
+(43,'Lotus Palace','Jaipur',5,100,TRUE),
+(47,'Skyline Resort','Bangalore',4,70,TRUE),
+(3,'Serenity Stay','Coimbatore',4,50,TRUE),
+(7,'Paradise Bay','Goa',5,90,TRUE),
+(11,'Crystal Inn','Chennai',4,55,TRUE);
 
    

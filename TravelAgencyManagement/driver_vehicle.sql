@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS drivers_vehicles(
+CREATE TABLE IF NOT EXISTS Drivers_Vehicles(
     id SERIAL PRIMARY KEY,
     Driver_id INT NOT NULL,
     Vehicle_id INT NOT NULL,
@@ -11,51 +11,46 @@ CREATE TABLE IF NOT EXISTS drivers_vehicles(
     CONSTRAINT unique_driver_vehicle UNIQUE (driver_id, vehicle_id, assigned_from)
 );
 
+INSERT INTO Drivers_Vehicles(Driver_id, Vehicle_id, assigned_from, assigned_to, status)
+VALUES
+(1, 1, '2026-01-01', '2026-06-30', 'Active'),
+(1, 2, '2026-07-01', '2026-12-31', 'Active'),
+(2, 3, '2026-01-15', '2026-05-15', 'Active'),
+(2, 4, '2026-05-16', '2026-10-15', 'Active'),
+(3, 5, '2026-02-01', '2026-07-01', 'Active'),
+(3, 6, '2026-07-02', '2026-12-31', 'Active'),
+(4, 7, '2026-01-10', '2026-06-10', 'Active'),
+(4, 8, '2026-06-11', '2026-12-31', 'Active'),
+(5, 9, '2026-03-01', '2026-08-01', 'Active'),
+(5, 10, '2026-08-02', '2026-12-31', 'Active'),
+(6, 11, '2026-01-20', '2026-05-20', 'Active'),
+(6, 12, '2026-05-21', '2026-11-20', 'Active'),
+(7, 13, '2026-02-05', '2026-06-30', 'Active'),
+(7, 14, '2026-07-01', '2026-12-31', 'Active'),
+(8, 15, '2026-01-01', '2026-05-31', 'Active'),
+(8, 16, '2026-06-01', '2026-12-31', 'Active'),
+(9, 17, '2026-03-01', '2026-07-31', 'Active'),
+(9, 18, '2026-08-01', '2026-12-31', 'Active'),
+(10, 19, '2026-01-15', '2026-06-15', 'Active'),
+(10, 20, '2026-06-16', '2026-12-31', 'Active'),
+(11, 21, '2026-02-01', '2026-07-01', 'Active'),
+(11, 22, '2026-07-02', '2026-12-31', 'Active'),
+(12, 23, '2026-01-10', '2026-06-10', 'Active'),
+(12, 24, '2026-06-11', '2026-12-31', 'Active'),
+(13, 25, '2026-03-01', '2026-07-31', 'Active'),
+(13, 26, '2026-08-01', '2026-12-31', 'Active'),
+(14, 27, '2026-01-05', '2026-06-05', 'Active'),
+(14, 28, '2026-06-06', '2026-12-31', 'Active'),
+(15, 29, '2026-02-01', '2026-07-01', 'Active'),
+(15, 30, '2026-07-02', '2026-12-31', 'Active'),
+(16, 31, '2026-01-01', '2026-06-30', 'Active'),
+(16, 32, '2026-07-01', '2026-12-31', 'Active'),
+(17, 33, '2026-03-01', '2026-08-01', 'Active'),
+(17, 34, '2026-08-02', '2026-12-31', 'Active'),
+(18, 35, '2026-01-20', '2026-06-20', 'Active'),
+(18, 36, '2026-06-21', '2026-12-31', 'Active'),
+(19, 37, '2026-02-10', '2026-07-10', 'Active'),
+(19, 38, '2026-07-11', '2026-12-31', 'Active'),
+(20, 39, '2026-01-01', '2026-06-30', 'Active'),
+(20, 40, '2026-07-01', '2026-12-31', 'Active');
 
-CREATE OR REPLACE FUNCTION driverVehicleAvailability()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF TG_OP = 'INSERT' OR (TG_OP = 'UPDATE' AND NEW.status = 'active') THEN
-        UPDATE drivers
-        SET available_status = FALSE
-        WHERE id = NEW.driver_id;
-
-        UPDATE vehicles
-        SET available_status = FALSE
-        WHERE id = NEW.vehicle_id;
-
-    ELSIF TG_OP = 'UPDATE' AND NEW.status <> 'active' THEN
-        UPDATE drivers
-        SET available_status = TRUE
-        WHERE id = NEW.driver_id;
-
-        UPDATE vehicles
-        SET available_status = TRUE
-        WHERE id = NEW.vehicle_id;
-    END IF;
-
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-
-CREATE TRIGGER TrgdriverVehicleAvailability
-AFTER INSERT OR UPDATE ON drivers_vehicles
-FOR EACH ROW
-EXECUTE FUNCTION driverVehicleAvailability();
-
-INSERT INTO drivers_vehicles
-(driver_id, vehicle_id, assigned_from, assigned_to, status)
-VALUES(1, 4, '2025-01-01', '2025-12-31', 'Active'),
-(2, 7, '2025-02-01', '2025-10-31', 'Active'),
-(3, 2, '2025-03-15', '2025-09-15', 'Active'),
-(4, 8, '2025-04-01', '2025-08-31', 'Active'),
-(5, 4, '2025-01-10', '2025-12-31', 'Active'),
-(6, 1, '2025-05-01', '2025-11-30', 'Active');
-
-
-UPDATE drivers_vehicles SET status='Completed' WHERE id =1;
-
-SELECT * FROM drivers_vehicles;
-
-DROP TABLE drivers_vehicles;
