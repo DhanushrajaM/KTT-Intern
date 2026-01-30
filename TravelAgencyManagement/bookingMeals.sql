@@ -2,13 +2,13 @@ CREATE TABLE IF NOT EXISTS BookingMeals(
     id SERIAL PRIMARY KEY,
     Booking_id INT NOT NULL,
     Meal_id INT NOT NULL,
-    quality INT CHECK(quality >0),
+    quantity INT CHECK(quality >0),
     created_at TIMESTAMP DEFAULT CURRENT_DATE,
     CONSTRAINT fk_bookingMeals_booking FOREIGN KEY (Booking_id) REFERENCES Bookings(id),
     CONSTRAINT fk_bookingMeals_meal FOREIGN KEY (Meal_id) REFERENCES Meals(id)
 );
 
-INSERT INTO BookingMeals (Booking_id, Meal_id, quality)
+INSERT INTO BookingMeals (Booking_id, Meal_id, quantity)
 VALUES
 (1,1,2),
 (1,4,2),

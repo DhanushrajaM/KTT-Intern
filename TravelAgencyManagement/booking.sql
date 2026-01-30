@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Bookings(
     total_amount DECIMAL(10,2),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_booking_customer FOREIGN KEY (Customer_id) REFERENCES Customers(id)
-    CONSTRAINT fk_booking_package FOREIGN KEY (Package_id) REFERENCES travelPackages(id)
+    CONSTRAINT fk_booking_package FOREIGN KEY (Package_id) REFERENCES TravelPackages(id)
 );
 
 INSERT INTO bookings(Customer_id, Package_id, booking_seats, booking_status, total_amount)

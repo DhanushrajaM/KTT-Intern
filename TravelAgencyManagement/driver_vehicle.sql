@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS Drivers_Vehicles(
     assigned_to DATE NOT NULL,
     status VARCHAR(20) DEFAULT 'Active',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_driver FOREIGN KEY (Driver_id) REFERENCES drivers(id),
-    CONSTRAINT fk_vehicle FOREIGN KEY (Vehicle_id) REFERENCES vehicles(id),
+    CONSTRAINT fk_driver FOREIGN KEY (Driver_id) REFERENCES Drivers(id),
+    CONSTRAINT fk_vehicle FOREIGN KEY (Vehicle_id) REFERENCES Vehicles(id),
     CONSTRAINT unique_driver_vehicle UNIQUE (driver_id, vehicle_id, assigned_from)
 );
 

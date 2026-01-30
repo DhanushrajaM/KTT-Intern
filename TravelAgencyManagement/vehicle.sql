@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS Vehicles(
     Vendor_id INT NOT NULL,
     available_status BOOlEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_vehicle_vendor FOREIGN KEY (Vendor_id) REFERENCES vendors(id) 
+    CONSTRAINT fk_vehicle_vendor FOREIGN KEY (Vendor_id) REFERENCES Vendors(id) 
 );
 
 INSERT INTO Vehicles(vehicle_number, vehicle_type, ownership_type, seating_capacity, Vendor_id, available_status)

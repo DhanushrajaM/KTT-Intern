@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Hotels(
    total_rooms INT CHECK(total_rooms>0),
    is_active BOOlEAN DEFAULT TRUE,
    Created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-   CONSTRAINT fk_vendor_id FOREIGN KEY (Vendor_id) REFERENCES vendors(id)
+   CONSTRAINT fk_vendor_id FOREIGN KEY (Vendor_id) REFERENCES Vendors(id)
    );
    
 INSERT INTO Hotels
