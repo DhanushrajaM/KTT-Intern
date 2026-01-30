@@ -34,4 +34,4 @@ VALUES('Raja','raja@gmail.com','12345','Admin','9876382342'),
 
 
 SELECT * FROM Users;
-DROP TABLE users;
+DROP TABLE Users;

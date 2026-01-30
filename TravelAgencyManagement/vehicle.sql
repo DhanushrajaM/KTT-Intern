@@ -114,8 +114,5 @@ VALUES
 ('MH99UV9012','Bus','Owned',42,NULL,TRUE),
 ('KA100VW0123','Van','Rented',14,2,TRUE);
 
-
-UPDATE vehicles SET available_status ='True';
-
-SELECT * FROM vehicles;
-DROP TABLE vehicles;
+SELECT * FROM Vehicles;
+DROP TABLE Vehicles;
