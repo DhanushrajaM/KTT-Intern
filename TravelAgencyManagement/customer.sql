@@ -57,3 +57,5 @@ VALUES
 
 
 SELECT * FROM Customers;
+
+DROP TABLE Customers;
